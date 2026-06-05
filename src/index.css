@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+/* Enable dark mode via .dark class on <html> (Tailwind v4) */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-navy-950: #07111a;
+  --color-navy: #0E2233;
+  --color-navy-800: #1b354c;
+  --color-navy-700: #254460;
+
+  --color-gold: #C9A86C;
+  --color-gold-400: #d6bd8b;
+  --color-gold-600: #b59253;
+
+  --color-cream: #F5E6C8;
+  --color-cream-100: #FAF4E8;
+  --color-cream-300: #E6D2AD;
+
+  --font-serif: "Cormorant Garamond", serif;
+  --font-sans: "Inter", sans-serif;
+}
+
+@layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-sans bg-white dark:bg-navy-950 text-navy-950 dark:text-cream-100 antialiased selection:bg-gold selection:text-navy overflow-x-hidden;
+    min-height: 100dvh;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+  }
+
+  img, video {
+    max-width: 100%;
+    height: auto;
+  }
+
+  input, select, textarea, button {
+    font-size: 16px;
+    min-width: 0;
+  }
+
+  @media (min-width: 640px) {
+    input, select, textarea, button {
+      font-size: inherit;
+    }
+  }
+}
+
+@layer utilities {
+  .transition-gold {
+    @apply transition-all duration-300 ease-in-out;
+  }
+
+  .page-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10 w-full;
+  }
+
+  .animate-fade-up {
+    animation: fadeUp 0.85s ease-out both;
+  }
+
+  .animate-glow {
+    animation: glow 2.5s ease-in-out infinite alternate;
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 0 rgba(201, 168, 108, 0.15);
+  }
+  to {
+    box-shadow: 0 0 18px rgba(201, 168, 108, 0.25);
+  }
+}
