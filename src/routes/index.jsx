@@ -1,4 +1,4 @@
-import { createBrowserRouter } from 'react-router-dom';
+import { createHashRouter } from 'react-router-dom';
 import Layout from '../components/Layout';
 import AdminProtectedRoute from '../components/AdminProtectedRoute';
 import AdminLayout from '../components/AdminLayout';
@@ -14,7 +14,7 @@ import AdminOrders from '../pages/admin/AdminOrders';
 import AdminProducts from '../pages/admin/AdminProducts';
 import AdminCoupons from '../pages/admin/AdminCoupons';
 
-const router = createBrowserRouter([
+const router = createHashRouter([
   {
     element: <Layout />,
     children: [
