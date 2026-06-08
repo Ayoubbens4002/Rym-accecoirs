@@ -19,6 +19,7 @@ export default defineConfig(({ mode, command }) => {
         '/api': {
           target: proxyTarget,
           changeOrigin: true,
+          secure: false, 
         },
         '/sanctum': {
           target: proxyTarget,
